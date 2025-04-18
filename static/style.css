@@ -1,0 +1,101 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f7f7f7 0%, #e2e2e2 100%);
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);;
+  z-index: 1;
+}
+
+/* Botões de opção */
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #5b21b6;
+  color: #fff;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #4c1d95;
+  transform: scale(1.02);
+}
+
+button.option-btn {
+  /* width: 100%; já herdado do button */
+  font-size: 1.05rem;
+  background: #5b21b6;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+button.option-btn:hover:not(:disabled) {
+  transform: scale(1.03);
+  background: #4c1d95;
+}
+
+button.option-btn:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+/* Feedback de resposta correta/errada */
+button.correct { background: #16a34a !important; }
+button.wrong   { background: #dc2626 !important; }
+
+.resposta-correta {
+  margin-top: 15px;
+  padding: 10px;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.resultado {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+
+/* Splash de entrada */
+#splash {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:  #89CFF0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  z-index: 10;
+  animation: fadeOut 1s ease-in-out 3s forwards;
+}
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}

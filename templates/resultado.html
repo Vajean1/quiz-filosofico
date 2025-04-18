@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 style="text-align:center;">🎉 Resultado Final: </h1>
+    <p class="resultado">
+      Você acertou {{ acertos }} de {{ total }} perguntas!
+    </p>  
+
+    {% set percentual = (acertos / total * 100) %}
+    {% if percentual >= 80 %}
+      <p class="resposta-correta" style="font-size:1.3rem;">
+        Parabéns, agora você se tornou um filósofo!
+      </p>
+    {% endif %}
+    {% if percentual < 80 and percentual >= 50 %}
+      <p class="resposta-correta" style="font-size:1.3rem;">
+        Você está no caminho certo, continue estudando!
+      </p>
+    {% endif %}
+    {% if percentual < 50 %}
+      <p class="resposta-correta" style="font-size:1.3rem;">
+        Não desanime, continue tentando!
+      </p>
+    {% endif %}
+    <div style="text-align:center;">
+      <a href="{{ url_for('index') }}">
+        <button class="tentar_nvmt_btn">Ver o oráculo novamente</button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
